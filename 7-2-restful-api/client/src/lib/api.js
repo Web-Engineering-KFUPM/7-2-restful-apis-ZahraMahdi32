@@ -1,4 +1,4 @@
-const BASE = import.meta.env.VITE_API_URL || "http://localhost:5174";
+const BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 
 export async function apiGetSongs() {

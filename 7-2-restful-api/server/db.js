@@ -1,13 +1,15 @@
 /** ===========================================
  *  db.js — Mongo connection helper
- *  -------------------------------------------
- *  TASK DB-1:
- *    - Export connectDB() that connects Mongoose using MONGO_URL
- *    - Log success; throw on failure
+ *  TASK DB-1
  */
 import mongoose from "mongoose";
 
 export async function connectDB(url) {
-  await mongoose.connect(url);
-  console.log("[DB] Mongo connected");
+  try {
+    await mongoose.connect(url);
+    console.log("[DB] Mongo connected");
+  } catch (err) {
+    console.error("[DB] Connection error:", err.message);
+    throw err;
+  }
 }
